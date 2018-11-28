@@ -19,16 +19,25 @@ $background: #fff;
   width: 60%;
   max-width: 400px;
 
-  margin: 20% auto;
+  margin: 20vh auto;
 
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
   .title {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
     text-align: center;
 
     font-size: 5em;
+    color: $foreground;
+  }
+
+  .subtitle {
+    margin-bottom: 20px;
+
+    text-align: center;
+
+    font-size: 2em;
     color: $foreground;
   }
 
@@ -82,6 +91,7 @@ $background: #fff;
         }
 
         a {
+          font-size: 1em;
           color: $foreground;
           text-decoration: none;
         }
