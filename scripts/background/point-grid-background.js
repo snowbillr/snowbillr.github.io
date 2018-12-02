@@ -1,12 +1,12 @@
-import { PointGrid } from './background/point-grid';
-import { PointSwapAnimation } from './background/point-swap-animation';
+import { PointGrid } from './point-grid';
+import { PointSwapAnimation } from './point-swap-animation';
 
 export class PointGridBackground {
   constructor() {
     this.backgroundCanvas = document.querySelector('#background-canvas');
-    this.ctx = backgroundCanvas.getContext('2d');
+    this.ctx = this.backgroundCanvas.getContext('2d');
 
-    this.pointGrid = new PointGrid(100, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
+    this.pointGrid = new PointGrid(100, this.ctx.canvas.clientWidth, this.ctx.canvas.clientHeight);
     this.pointSwapAnimations = [];
   }
 
@@ -20,7 +20,7 @@ export class PointGridBackground {
   }
 
   addResizeListener() {
-    window.addEventListener('resize', resize);
+    window.addEventListener('resize', this.resize);
   }
 
   resize() {
@@ -42,11 +42,11 @@ export class PointGridBackground {
       firstPoint.visible = false;
       secondPoint.visible = false;
 
-      pointSwapAnimations.push(new PointSwapAnimation(firstPoint, secondPoint, animation => {
+      this.pointSwapAnimations.push(new PointSwapAnimation(firstPoint, secondPoint, animation => {
         firstPoint.visible = true;
         secondPoint.visible = true;
 
-        pointSwapAnimations.splice(pointSwapAnimations.indexOf(animation), 1);
+        this.pointSwapAnimations.splice(this.pointSwapAnimations.indexOf(animation), 1);
       }));
     }, 500)
   }
@@ -54,7 +54,7 @@ export class PointGridBackground {
   mainLoop() {
     this.update();
     this.render();
-    requestAnimationFrame(this.mainLoop);
+    requestAnimationFrame(() => this.mainLoop());
   }
 
   update() {
@@ -70,6 +70,6 @@ export class PointGridBackground {
 
   clear() {
     this.ctx.fillStyle = '#fff';
-    this.ctx.fillRect(0, 0, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
+    this.ctx.fillRect(0, 0, this.ctx.canvas.clientWidth, this.ctx.canvas.clientHeight);
   }
 }

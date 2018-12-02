@@ -343,12 +343,17 @@ function () {
 }();
 
 exports.PointSwapAnimation = PointSwapAnimation;
-},{}],"scripts/index.js":[function(require,module,exports) {
+},{}],"scripts/background/point-grid-background.js":[function(require,module,exports) {
 "use strict";
 
-var _pointGrid = require("./background/point-grid");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.PointGridBackground = void 0;
 
-var _pointSwapAnimation = require("./background/point-swap-animation");
+var _pointGrid = require("./point-grid");
+
+var _pointSwapAnimation = require("./point-swap-animation");
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
@@ -358,65 +363,155 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var backgroundCanvas = document.querySelector('#background-canvas');
-var ctx = backgroundCanvas.getContext('2d');
-var pointGrid = new _pointGrid.PointGrid(100, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
-var pointSwapAnimations = [];
-setInterval(function () {
-  var _pointGrid$selectVisi = pointGrid.selectVisibleAdjacentPoints(),
-      _pointGrid$selectVisi2 = _slicedToArray(_pointGrid$selectVisi, 2),
-      firstPoint = _pointGrid$selectVisi2[0],
-      secondPoint = _pointGrid$selectVisi2[1];
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  if (firstPoint == null || secondPoint == null) return;
-  firstPoint.visible = false;
-  secondPoint.visible = false;
-  pointSwapAnimations.push(new _pointSwapAnimation.PointSwapAnimation(firstPoint, secondPoint, function (animation) {
-    firstPoint.visible = true;
-    secondPoint.visible = true;
-    pointSwapAnimations.splice(pointSwapAnimations.indexOf(animation), 1);
-  }));
-}, 500);
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function mainLoop() {
-  update();
-  render();
-  requestAnimationFrame(mainLoop);
-}
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function update() {
-  pointGrid.update();
-  pointSwapAnimations.forEach(function (pointSwapAnimation) {
-    return pointSwapAnimation.update();
-  });
-}
+var PointGridBackground =
+/*#__PURE__*/
+function () {
+  function PointGridBackground() {
+    _classCallCheck(this, PointGridBackground);
 
-function render() {
-  clear();
-  pointGrid.render(ctx);
-  pointSwapAnimations.forEach(function (pointSwapAnimation) {
-    return pointSwapAnimation.render(ctx);
-  });
-}
+    this.backgroundCanvas = document.querySelector('#background-canvas');
+    this.ctx = this.backgroundCanvas.getContext('2d');
+    this.pointGrid = new _pointGrid.PointGrid(100, this.ctx.canvas.clientWidth, this.ctx.canvas.clientHeight);
+    this.pointSwapAnimations = [];
+  }
 
-function clear() {
-  ctx.fillStyle = '#fff';
-  ctx.fillRect(0, 0, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
-}
+  _createClass(PointGridBackground, [{
+    key: "start",
+    value: function start() {
+      this.addResizeListener();
+      this.resize();
+      this.startSpawnLoop();
+      this.mainLoop();
+    }
+  }, {
+    key: "addResizeListener",
+    value: function addResizeListener() {
+      window.addEventListener('resize', this.resize);
+    }
+  }, {
+    key: "resize",
+    value: function resize() {
+      var displayWidth = window.innerWidth;
+      var displayHeight = window.innerHeight;
+      this.backgroundCanvas.width = displayWidth;
+      this.backgroundCanvas.height = displayHeight;
+      this.pointGrid.resize(displayWidth, displayHeight);
+    }
+  }, {
+    key: "startSpawnLoop",
+    value: function startSpawnLoop() {
+      var _this = this;
 
-window.addEventListener('resize', resize);
+      setInterval(function () {
+        var _this$pointGrid$selec = _this.pointGrid.selectVisibleAdjacentPoints(),
+            _this$pointGrid$selec2 = _slicedToArray(_this$pointGrid$selec, 2),
+            firstPoint = _this$pointGrid$selec2[0],
+            secondPoint = _this$pointGrid$selec2[1];
 
-function resize() {
-  var displayWidth = window.innerWidth;
-  var displayHeight = window.innerHeight;
-  backgroundCanvas.width = displayWidth;
-  backgroundCanvas.height = displayHeight;
-  pointGrid.resize(displayWidth, displayHeight);
-}
+        if (firstPoint == null || secondPoint == null) return;
+        firstPoint.visible = false;
+        secondPoint.visible = false;
 
-resize();
-mainLoop();
-},{"./background/point-grid":"scripts/background/point-grid.js","./background/point-swap-animation":"scripts/background/point-swap-animation.js"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+        _this.pointSwapAnimations.push(new _pointSwapAnimation.PointSwapAnimation(firstPoint, secondPoint, function (animation) {
+          firstPoint.visible = true;
+          secondPoint.visible = true;
+
+          _this.pointSwapAnimations.splice(_this.pointSwapAnimations.indexOf(animation), 1);
+        }));
+      }, 500);
+    }
+  }, {
+    key: "mainLoop",
+    value: function mainLoop() {
+      var _this2 = this;
+
+      this.update();
+      this.render();
+      requestAnimationFrame(function () {
+        return _this2.mainLoop();
+      });
+    }
+  }, {
+    key: "update",
+    value: function update() {
+      this.pointGrid.update();
+      this.pointSwapAnimations.forEach(function (pointSwapAnimation) {
+        return pointSwapAnimation.update();
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      this.clear();
+      this.pointGrid.render(this.ctx);
+      this.pointSwapAnimations.forEach(function (pointSwapAnimation) {
+        return pointSwapAnimation.render(_this3.ctx);
+      });
+    }
+  }, {
+    key: "clear",
+    value: function clear() {
+      this.ctx.fillStyle = '#fff';
+      this.ctx.fillRect(0, 0, this.ctx.canvas.clientWidth, this.ctx.canvas.clientHeight);
+    }
+  }]);
+
+  return PointGridBackground;
+}();
+
+exports.PointGridBackground = PointGridBackground;
+},{"./point-grid":"scripts/background/point-grid.js","./point-swap-animation":"scripts/background/point-swap-animation.js"}],"scripts/console-message.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ConsoleMessage = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var ConsoleMessage =
+/*#__PURE__*/
+function () {
+  function ConsoleMessage() {
+    _classCallCheck(this, ConsoleMessage);
+  }
+
+  _createClass(ConsoleMessage, [{
+    key: "print",
+    value: function print() {
+      console.log("\n    Thanks for checking out my website!\n\n    You can contact me at billnreed@gmail.com if you'd like to get in touch.\n    ");
+    }
+  }]);
+
+  return ConsoleMessage;
+}();
+
+exports.ConsoleMessage = ConsoleMessage;
+},{}],"scripts/index.js":[function(require,module,exports) {
+"use strict";
+
+var _pointGridBackground = require("./background/point-grid-background");
+
+var _consoleMessage = require("./console-message");
+
+var pointGridBackground = new _pointGridBackground.PointGridBackground();
+pointGridBackground.start();
+var consoleMessage = new _consoleMessage.ConsoleMessage();
+consoleMessage.print();
+},{"./background/point-grid-background":"scripts/background/point-grid-background.js","./console-message":"scripts/console-message.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -443,7 +538,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55880" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59990" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
@@ -585,5 +680,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},["node_modules/parcel/src/builtins/hmr-runtime.js","scripts/index.js"], null)
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","scripts/index.js"], null)
 //# sourceMappingURL=/scripts.bcf3243b.map
