@@ -3,10 +3,9 @@
     "dev": "parcel index.html",
     "build": "parcel build index.html"
   },
-  "dependencies": {
-    "parcel": "^1.10.3"
-  },
   "devDependencies": {
+    "parcel": "^1.10.3",
+    "parcel-plugin-clean-dist": "^0.0.6",
     "sass": "^1.15.1"
   }
 }
