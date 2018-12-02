@@ -21,11 +21,12 @@ export class PointSwapAnimation {
       }
     };
 
-    const xDistance = firstPoint.displayX - secondPoint.displayX;
-    const yDistance = firstPoint.displayY - secondPoint.displayY;
+    this.xDistance = firstPoint.displayX - secondPoint.displayX;
+    this.yDistance = firstPoint.displayY - secondPoint.displayY;
+  }
 
-    this.xStep = xDistance / this.frameDuration;
-    this.yStep = yDistance / this.frameDuration;
+  ease(t, b, c, d) {
+    return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
   }
 
   update() {
@@ -39,11 +40,11 @@ export class PointSwapAnimation {
         this.callbackCalled = true;
       }
     } else {
-      this.firstPoint.displayX -= this.xStep;
-      this.firstPoint.displayY -= this.yStep;
+      this.firstPoint.displayX = this.ease(this.frame, this.originalDisplayCoords.firstPoint.displayX, -this.xDistance, this.frameDuration);
+      this.firstPoint.displayY = this.ease(this.frame, this.originalDisplayCoords.firstPoint.displayY, -this.yDistance, this.frameDuration);
 
-      this.secondPoint.displayX += this.xStep;
-      this.secondPoint.displayY += this.yStep;
+      this.secondPoint.displayX = this.ease(this.frame, this.originalDisplayCoords.secondPoint.displayX, this.xDistance, this.frameDuration);
+      this.secondPoint.displayY = this.ease(this.frame, this.originalDisplayCoords.secondPoint.displayY, this.yDistance, this.frameDuration);
     }
   }
 
