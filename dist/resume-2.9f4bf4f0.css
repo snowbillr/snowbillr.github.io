@@ -11,7 +11,12 @@
   box-sizing: border-box;
 }
 
-.resume {
+h1, h2, h3, h4, h5, h6 {
+  font-size: var(--unit-sm);
+  font-weight: 400;
+}
+
+.page-container {
   max-width: 640px;
   margin: 0 auto;
 }
@@ -44,19 +49,20 @@
   font-size: var(--unit-sm);
 }
 
-.work-section {
+.section-detail {
   margin-bottom: var(--unit-md);
 }
-.work-section__title {
+.section-detail__title {
   margin-bottom: var(--unit-sm);
   font-size: var(--unit-sm);
+  font-weight: 600;
 }
-.work-section__description {
+.section-detail__description {
   margin-bottom: var(--unit-sm);
   font-size: var(--unit-sm);
 }
 
-.work-experience-list {
+.experience-list {
   display: grid;
   grid-template-columns: 200px auto;
   gap: var(--unit-sm);

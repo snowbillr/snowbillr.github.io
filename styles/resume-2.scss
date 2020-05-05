@@ -13,7 +13,12 @@
   box-sizing: border-box;
 }
 
-.resume {
+h1, h2, h3, h4, h5, h6 {
+  font-size: var(--unit-sm);
+  font-weight: 400;
+}
+
+.page-container {
   max-width: 640px;
   margin: 0 auto;
 }
@@ -52,13 +57,14 @@
   }
 }
 
-.work-section {
+.section-detail {
   margin-bottom: var(--unit-md);
 
   &__title {
     margin-bottom: var(--unit-sm);
 
     font-size: var(--unit-sm);
+    font-weight: 600;
   }
 
   &__description {
@@ -68,7 +74,7 @@
   }
 }
 
-.work-experience-list {
+.experience-list {
   display: grid;
   grid-template-columns: 200px auto;
   gap: var(--unit-sm);
