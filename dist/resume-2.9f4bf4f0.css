@@ -48,6 +48,11 @@ h1, h2, h3, h4, h5, h6 {
 .resume-section__body {
   font-size: var(--unit-sm);
 }
+.resume-section__body--two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--unit-sm);
+}
 
 .section-detail {
   margin-bottom: var(--unit-md);
@@ -64,8 +69,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .experience-list {
   display: grid;
-  grid-template-columns: 200px auto;
+  grid-template-columns: minmax(auto, 200px) auto;
   gap: var(--unit-sm);
+}
+.experience-list--thin {
+  grid-template-columns: minmax(auto, 150px) auto;
+}
+
+.technology-list {
+  list-style-type: none;
 }
 
 /*# sourceMappingURL=/resume-2.9f4bf4f0.css.map */

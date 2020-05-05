@@ -54,6 +54,12 @@ h1, h2, h3, h4, h5, h6 {
 
   &__body {
     font-size: var(--unit-sm);
+
+    @at-root &--two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--unit-sm);
+    }
   }
 }
 
@@ -76,8 +82,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .experience-list {
   display: grid;
-  grid-template-columns: 200px auto;
+  grid-template-columns: minmax(auto, 200px) auto;
   gap: var(--unit-sm);
+
+  @at-root &--thin {
+    grid-template-columns: minmax(auto, 150px) auto;
+  }
 
   &__name {
   }
@@ -85,4 +95,8 @@ h1, h2, h3, h4, h5, h6 {
   &__description {
 
   }
+}
+
+.technology-list {
+  list-style-type: none;
 }
