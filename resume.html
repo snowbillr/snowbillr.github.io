@@ -2,230 +2,167 @@
 <html>
 <head>
   <title>Bill Reed - Resume</title>
-  <link rel="stylesheet" href="styles/resume.scss"/>
+  <link rel="stylesheet" href="styles/resume-2.scss"/>
 </head>
 <body>
   <main>
-    <header>
-      <h1>Bill Reed</h1>
+    <header class="header">
+      <h1 class="header__title">Bill Reed</h1>
 
-      <ul class="inline">
-        <li><a href="mailto:billnreed@gmail.com">billnreed@gmail.com</a></li>
-        <li><a href="https://www.github.com/billnreed">github.com/billnreed</a></li>
+      <ul class="header__contact-list">
+        <li class="header__contact-list__item"><a href="mailto:billnreed@gmail.com">billnreed@gmail.com</a></li>
+        <li class="header__contact-list__item"><a href="https://www.github.com/billnreed">github.com/billnreed</a></li>
       </ul>
     </header>
 
-    <section>
-      <h2>Objective</h2>
-      <p>
-        To create a high quality, highly maintainable product that delivers an awesome experience for the
-        user. To improve myself as a developer by gaining more experience, learning new skills and
-        technologies,
-        and solving challenging problems.
-      </p>
-    </section>
-
-    <section>
-      <h2>Education</h2>
-
-      <div>
-        <dl>
-          <dt>
-            <h3>Bucknell University</h3>
-          </dt>
-          <dd>
-            <ul>
-              <li>
-                B.S. Computer Science & Engineering
-              </li>
-              <li>
-                Minor in Applied Mathematics and Modeling
-              </li>
-              <li>
-                GPA: 3.53
-              </li>
-            </ul>
-          </dd>
-        </dl>
-
+    <section class="resume-section">
+      <h2 class="resume-section__title">Objective</h2>
+      <div class="resume-section__body">
+        To create a high quality, highly maintainable product that delivers an awesome experience for the user. To improve myself as a developer by gaining more experience, learning new skills and technologies, and solving challenging problems.
       </div>
     </section>
 
-    <section>
-      <h2>Work Experience</h2>
+    <section class="resume-section">
+      <h2 class="resume-section__title">Education</h2>
+      <div class="resume-section__body">
+        <div class="work-section">
+          <h3 class="work-section__title">Bucknell University</h3>
+          <div class="work-section__description">
+            B.S. Computer Science & Engineering
+            Minor in Applied Mathematics and Modeling
+            GPA: 3.53
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <div>
-        <h3>Software Engineer, BookBub <em>September 2016 - Present</em></h3>
-        <p>
-          Worked as a fullstack engineer at BookBub across multiple projects with a focus on front-end development. Became known as an expert within the company on front-end best practices in areas including React, CSS, semantic HTML, and accessibilty. Championed and drove the adoption of GraphQL and React Hooks. Architected major features across the full application stack for individual projects, as well as features across multiple projects. Mentored engineering interns, co-ops, and junior team members to become better employees and engineers. Conducted hiring phone screens and in-person interviews for engineering positions.
-        </p>
-        <dl>
-          <dt>
-            <h4>BookBub Blog</h4>
-          </dt>
-          <dd>
-            <p>
+    <section class="resume-section">
+      <h2 class="resume-section__title">Work Experience</h2>
+      <div class="resume-section__body">
+        <div class="work-section">
+          <h3 class="work-section__title">Software Engineer, BookBub <em>September 2016 - Present</em></h3>
+          <p class="work-section__description">
+            Worked as a fullstack engineer at BookBub across multiple projects with a focus on front-end development. Became known as an expert within the company on front-end best practices in areas including React, CSS, semantic HTML, and accessibilty. Championed and drove the adoption of GraphQL and React Hooks. Architected major features across the full application stack for individual projects, as well as features across multiple projects. Mentored engineering interns, co-ops, and junior team members to become better employees and engineers. Conducted hiring phone screens and in-person interviews for engineering positions.
+          </p>
+          <dl class="work-experience-list">
+            <dt class="work-experience-list__name">BookBub Blog</dt>
+            <dd class="work-experience-list__description">
               Built the front-end for the BookBub blog, including individual article pages, an index page with pagination, social sharing features, dynamic embeddable content for article authors, and ad integration..
-            </p>
-          </dd>
-          <dt>
-            <h4>One-off Mailing System</h4>
-          </dt>
-          <dd>
-            <p>
+            </dd>
+
+            <dt class="work-experience-list__name">One-off Mailing System</dt>
+            <dd class="work-experience-list__description">
               Built a one-off mailing system on top of an inhouse mailing campaign sending tool to replace our reliance on a separate third party tool. Integrated with SendGrid for templating and sending, wrote a guide for employees using the tool.
-            </p>
-          </dd>
-          <dt>
-            <h4>BookBub Member Homepage</h4>
-          </dt>
-          <dd>
-            <p>
+            </dd>
+
+            <dt class="work-experience-list__name">BookBub Member Homepage</dt>
+            <dd class="work-experience-list__description">
               Part of a team that built the redesigned logged-in homepage experience for users. Drove the architecture and implementation of the front-end and contributed to make design decisions and building the back-end. Homepage included user-tailored ebook recommendations based on their account's profile. Responsible for building the recently viewed books list. Tracked user interactions and incrementally rolled out the new homepage in a series of A/B tests to ensure an improved user experience.
-            </p>
-          </dd>
-          <dt>
-            <h4>BookBub Signup Flow</h4>
-          </dt>
-          <dd>
-            <p>
+            </dd>
+
+            <dt class="work-experience-list__name">BookBub Signup Flow</dt>
+            <dd class="work-experience-list__description">
               Part of a team that built the redesigned signup flow for new users. Flow was a multi-step process that built up the users' account information across multiple pages. Tracked user interaction with the flow and A/B tested it to ensure an improved conversion rate.
-            </p>
-          </dd>
-          <dt>
-            <h4>React Hooks</h4>
-          </dt>
-          <dd>
-            <p>
+            </dd>
+
+            <dt class="work-experience-list__name">React Hooks</dt>
+            <dd class="work-experience-list__description">
               Upgraded React through multiple major versions and pioneered the company's usage of React Hooks in order to keep our front-end up to date with the latest recommendation from the React team. Spread knowledge across engineering team through mentorship and live coding tech talks. Wrote many custom hooks repeatedly used across the codebase.
-            </p>
-          </dd>
-          <dt>
-            <h4>GraphQL</h4>
-          </dt>
-          <dd>
-            <p>
+            </dd>
+
+            <dt class="work-experience-list__name">GraphQL</dt>
+            <dd class="work-experience-list__description">
               Introduced the concept of GraphQL during a hack day project, then adopted it in production for the Chirp mobile app API, and Chirp website API. Used advanced features like batch loading to optimize database calls. Separated authenticated vs non-authenticated API requests. Researched and recommended best practices, and spread knowledge across the engineering team through mentorship and tech talks.
-            </p>
-          </dd>
-          <dt>
-            <h4>Reusable Carousel Component</h4>
-          </dt>
-          <dd>
-            <p>
+            </dd>
+
+            <dt class="work-experience-list__name">Reusable Carousel Component</dt>
+            <dd class="work-experience-list__description">
               Built a complex custom carousel in React. Could handle variable numbers of elements, variable numbers of slides, was animated, was easily extendable. Used by many developers for multiple years and across multiple projects.
-            </p>
-          </dd>
-          <dt>
-            <h4>Contributed multiple major features to Chirp</h4>
-          </dt>
-          <dd>
-            <p>
+            </dd>
+
+            <dt class="work-experience-list__name">Contributed multiple major features to Chirp</dt>
+            <dd class="work-experience-list__description">
               Responsible for the Chirp deals page front-end and some back-end work. Responsible for the Chirp search page front-end and some back-end work including standing up an Elasticsearch cluster on AWS. Responsible for the Chirp blog pages. Architected the entire shopping cart flow, built major parts of it, and oversaw the project getting built by multiple engineers.
-            </p>
-          </dd>
-          <dt>
-            <h4>Integrated with 3rd party products</h4>
-          </dt>
-          <dd>
-            <p>
+            </dd>
+
+            <dt class="work-experience-list__name">Integrated with 3rd party products</dt>
+            <dd class="work-experience-list__description">
               Including SendGrid, Google Adsense, Google ReCaptcha v2 and v3, Instapage, and Optinmonster, Rollbar, and DataDog.
-            </p>
-          </dd>
-          <dt>
-            <h4>Partner Ad Form Improvements</h4>
-          </dt>
-          <dd>
-            <p>
+            </dd>
+
+            <dt class="work-experience-list__name">Partner Ad Form Improvements</dt>
+            <dd class="work-experience-list__description">
               Enabled new feature work on the complex partner ad campaign creation and editing tool by planning, architecting, and completing a major refactoring effort. Planned and executed a multi-month refactor that had zero downtime for the existing form. Managed the project from start to finish with one other engineer working with me.
-            </p>
-          </dd>
-        </dl>
-      </div>
+            </dd>
+          </dl>
+        </div>
 
-      <div>
-        <h3>Senior Software Engineer, GE Digital <em>March 2016 - September 2016</em></h3>
-        <h3>Software Engineer, GE Digital <em>July 2014 - March 2016</em></h3>
-        <dl>
-          <dt>
-            <h4><a href="https://www.predix.io" target="_blank">predix.io</a></h4>
-          </dt>
-          <dd>
-            <p>
+        <div class="work-section">
+          <h3 class="work-section__title">Senior Software Engineer, GE Digital <em>March 2016 - September 2016</em></h3>
+          <h3 class="work-section__title">Software Engineer, GE Digital <em>July 2014 - March 2016</em></h3>
+
+          <dl class="work-experience-list">
+            <dt class="work-experience-list__name"><a href="https://www.predix.io" target="_blank">predix.io</a></dt>
+            <dd class="work-experience-list__description">
               Technical Anchor for the predix.io team. Responsible for making technology choices, architecture decisions, conducting code reviews, and working between multiple teams to gather and refine requirements. Website runs on Node/Express 4.x, with multiple SPAs created with Angular 1.x, backed by multiple microservices running on Spring Boot. Followed a rigorous structure (ITCSS) for styles using BEM and SASS. Mentored new web developers to help them learn new concepts and best practices. Used a continuous integration/delivery process with GitHub pull requests, Jenkins, Cloud Foundry.
-            </p>
-          </dd>
-          <dt>
-            <h4>Developer Community Hangout Host</h4>
-          </dt>
-          <dd>
-            <p>
-              Host bi-weekly developer hangouts with developers from the platform team. Hangouts consisted of discussing interesting problems and their solutions by developers on different teams. Interviewed one developer per hangout with a crowd that asked questions and participated in the discussions.
-            </p>
-          </dd>
-          <dt>
-            <h4>Predix Mobile</h4>
-          </dt>
-          <dd>
-            <p>
-              Worked on the Predix Mobile team for the iOS application. Developed in Objective-C using Couchbase as a backend to ensure accurate data replication for devices that would lose connectivity often and for long periods of time. Developed a proof of concept application for Android to communicate between SPAs running in a WebView and the Android application.
-            </p>
-          </dd>
-          <dt>
-            <h4>Predix Mobile Adoption Team</h4>
-          </dt>
-          <dd>
-            <p>
-              Co-designed a microservice based architecture for a solution team adopting the Predix Mobile product. Regularly met with the solution team to gather and understand requirements, give updates on progress, and get feedback on feasibility of the architecture. Created multiple microservices to hand off to the solution team.
-            </p>
-          </dd>
-        </dl>
-      </div>
+            </dd>
 
-      <div>
-        <h3>Edison Engineering Development Program, GE Healthcare <em>July 2012 - July 2014</em></h3>
-        <dl>
-          <dt>
-            <h4>Workbench</h4>
-          </dt>
-          <dd>
-            <p>
+            <dt class="work-experience-list__name">Developer Community Hangout Host</dt>
+            <dd class="work-experience-list__description">
+              Host bi-weekly developer hangouts with developers from the platform team. Hangouts consisted of discussing interesting problems and their solutions by developers on different teams. Interviewed one developer per hangout with a crowd that asked questions and participated in the discussions.
+            </dd>
+
+            <dt class="work-experience-list__name">Predix Mobile</dt>
+            <dd class="work-experience-list__description">
+              Worked on the Predix Mobile team for the iOS application. Developed in Objective-C using Couchbase as a backend to ensure accurate data replication for devices that would lose connectivity often and for long periods of time. Developed a proof of concept application for Android to communicate between SPAs running in a WebView and the Android application.
+            </dd>
+
+            <dt class="work-experience-list__name">Predix Mobile Adoption Team</dt>
+            <dd class="work-experience-list__description">
+              Co-designed a microservice based architecture for a solution team adopting the Predix Mobile product. Regularly met with the solution team to gather and understand requirements, give updates on progress, and get feedback on feasibility of the architecture. Created multiple microservices to hand off to the solution team.
+            </dd>
+          </dl>
+        </div>
+
+        <div class="work-section">
+          <h3 class="work-section__title">Edison Engineering Development Program, GE Healthcare <em>July 2012 - July 2014</em></h3>
+          <dl class="work-experience-list">
+            <dt class="work-experience-list__name">Workbench</dt>
+            <dd class="work-experience-list__description">
               Worked on an application with jQuery and a Play! Framework server that allowed users to create a SPA application with a WYSIWYG editor. Could create multiple tabs on a page, each with multiple widgets hooked up to data sources. Created application could then be exported as a Angular 1.x frontend and Play! Framework server. Wrote an extensive suite of Selenium tests with Java.
-            </p>
-          </dd>
-          <dt>
-            <h4>Build Team</h4>
-          </dt>
-          <dd>
-            <p>
+            </dd>
+
+            <dt class="work-experience-list__name">Build Team</dt>
+            <dd class="work-experience-list__description">
               Worked as a build engineer for a suite of Java based Healthcare applications. Used Electric Commander to define complex builds for multiple teams.
-            </p>
-          </dd>
-          <dt>
-            <h4>Centricity Perinatal Connect</h4>
-          </dt>
-          <dd>
-            <p>
+            </dd>
+
+            <dt class="work-experience-list__name">Centricity Perinatal Connect</dt>
+            <dd class="work-experience-list__description">
               Worked on a Windows desktop application used in hospitals to monitor vital signs of mothers and their babies. Used Windows Presentation Framework and C#.
-            </p>
-          </dd>
-        </dl>
+            </dd>
+          </dl>
+        </div>
       </div>
     </section>
 
-    <section>
-      <h2>Personal Projects</h2>
-
-      <div>
-        <h4><a href="https://www.github.com/billnreed/decreejs">DecreeJS</a></h4>
-        <p>
-          Created a JavaScript library to listen for key sequences and execute functions when they occur. The library has no dependencies, full unit test coverage, and can respond to complex, multi-step key sequences with any key as a modifier.
-        </p>
-
-        <h4><a href="https://snowbillr.github.io/blog">Personal Blog</a></h4>
-        <p>
-          Personal blog with a focus on game development. Active member of the Phaser community and on the Phaser Discord channel.
-        </p>
+    <section class="resume-section">
+      <h2 class="resume-section__title">Personal Projects</h2>
+      <div class="resume-section__body">
+        <dl class="work-experience-list">
+          <dt class="work-experience-list__name">
+            <a href="https://www.github.com/billnreed/decreejs">DecreeJS</a>
+          </h4>
+          <dd class="work-experience-list__description">
+            Created a JavaScript library to listen for key sequences and execute functions when they occur. The library has no dependencies, full unit test coverage, and can respond to complex, multi-step key sequences with any key as a modifier.
+          </dd>
+          <dt class="work-experience-list__name">
+            <a href="https://snowbillr.github.io/blog">Personal Blog</a>
+          </dt>
+          <dd class="work-section__description">
+            Personal blog with a focus on game development. Active member of the Phaser community and on the Phaser Discord channel.
+          </dd>
+        </dl>
       </div>
     </section>
 

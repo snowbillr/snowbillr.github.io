@@ -1,0 +1,60 @@
+:root {
+  --unit-sm: 16px;
+  --unit-md: 26px;
+  --unit-lg: 42px;
+  --unit-xl: 67px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: max-content auto;
+  column-gap: var(--unit-lg);
+  margin-bottom: var(--unit-md);
+}
+.header__title {
+  font-size: var(--unit-xl);
+  line-height: 1;
+}
+.header__contact-list {
+  list-style: none;
+}
+.header__contact-list__item {
+  font-size: var(--unit-sm);
+}
+
+.resume-section {
+  margin-bottom: var(--unit-md);
+}
+.resume-section__title {
+  font-size: var(--unit-md);
+  margin-bottom: var(--unit-sm);
+}
+.resume-section__body {
+  font-size: var(--unit-sm);
+}
+
+.work-section {
+  margin-bottom: var(--unit-md);
+}
+.work-section__title {
+  margin-bottom: var(--unit-sm);
+  font-size: var(--unit-sm);
+}
+.work-section__description {
+  margin-bottom: var(--unit-sm);
+  font-size: var(--unit-sm);
+}
+
+.work-experience-list {
+  display: grid;
+  grid-template-columns: 200px auto;
+  gap: var(--unit-sm);
+}
+
+/*# sourceMappingURL=/resume-2.9f4bf4f0.css.map */

@@ -1,0 +1,77 @@
+:root {
+  // https://type-scale.com/ - 1.618
+  --unit-sm: 16px;
+  --unit-md: 26px;
+  --unit-lg: 42px;
+  --unit-xl: 67px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: max-content auto;
+  column-gap: var(--unit-lg);
+
+  margin-bottom: var(--unit-md);
+
+  &__title {
+    font-size: var(--unit-xl);
+    line-height: 1;
+  }
+
+  &__contact-list {
+    list-style: none;
+
+    &__item {
+      font-size: var(--unit-sm);
+    }
+  }
+}
+
+.resume-section {
+  margin-bottom: var(--unit-md);
+
+  &__title {
+    font-size: var(--unit-md);
+    margin-bottom: var(--unit-sm);
+  }
+
+  &__body {
+    font-size: var(--unit-sm);
+  }
+}
+
+.work-section {
+  margin-bottom: var(--unit-md);
+
+  &__title {
+    margin-bottom: var(--unit-sm);
+
+    font-size: var(--unit-sm);
+  }
+
+  &__description {
+    margin-bottom: var(--unit-sm);
+
+    font-size: var(--unit-sm);
+  }
+}
+
+.work-experience-list {
+  display: grid;
+  grid-template-columns: 200px auto;
+  gap: var(--unit-sm);
+
+  &__name {
+  }
+
+  &__description {
+
+  }
+}
