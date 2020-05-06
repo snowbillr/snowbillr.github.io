@@ -55,7 +55,6 @@ a {
   margin-bottom: var(--unit-md);
 
   &__title {
-    margin-bottom: var(--unit-sm);
     margin-right: var(--unit-sm);
 
     font-size: var(--unit-xl);
@@ -63,6 +62,8 @@ a {
   }
 
   &__subtitle {
+    margin-bottom: var(--unit-sm);
+
     font-size: var(--unit-lg);
     font-weight: 300;
     line-height: 1;
@@ -206,6 +207,16 @@ a {
         content: ":";
         margin-right: 5px;
       }
+    }
+  }
+}
+
+.labeled-link {
+  &__label {
+    display: none;
+
+    @media (min-width: 400px) {
+      display: inline-block;
     }
   }
 }
