@@ -74,17 +74,29 @@ a {
 }
 
 .section-detail {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
   margin-bottom: var(--unit-md);
 }
 .section-detail__title {
-  margin-bottom: var(--unit-sm);
+  grid-column: 1/2;
   font-size: var(--unit-sm);
   font-weight: 500;
 }
+.section-detail__subtitle {
+  grid-column: 2/3;
+  text-align: right;
+  font-weight: 500;
+}
 .section-detail__description {
-  margin-bottom: var(--unit-sm);
+  grid-column: 1/3;
+  margin-top: var(--unit-sm);
   font-size: var(--unit-sm);
   line-height: 1.4;
+}
+.section-detail__body {
+  grid-column: 1/3;
+  margin-top: var(--unit-sm);
 }
 
 .experience-list {
