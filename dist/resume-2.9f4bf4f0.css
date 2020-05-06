@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 :root {
   --unit-sm: 16px;
   --unit-md: 26px;
@@ -16,26 +17,42 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
 
+a {
+  color: #666;
+}
+
 .page-container {
   max-width: 640px;
-  margin: 0 auto;
+  margin: var(--unit-lg) auto;
+  font-family: "Roboto", Arial, sans-serif;
 }
 
 .header {
   display: grid;
-  grid-template-columns: max-content auto;
-  column-gap: var(--unit-lg);
+  grid-template-areas: "a b" "c c";
+  row-gap: var(--unit-sm);
+  align-items: baseline;
   margin-bottom: var(--unit-md);
 }
 .header__title {
+  grid-area: a;
   font-size: var(--unit-xl);
   line-height: 1;
 }
+.header__subtitle {
+  grid-area: b;
+  font-size: var(--unit-lg);
+  font-weight: 300;
+  line-height: 1;
+}
 .header__contact-list {
+  grid-area: c;
+  display: flex;
   list-style: none;
 }
 .header__contact-list__item {
   font-size: var(--unit-sm);
+  margin-right: var(--unit-md);
 }
 
 .resume-section {
@@ -43,10 +60,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 .resume-section__title {
   font-size: var(--unit-md);
+  font-weight: 300;
   margin-bottom: var(--unit-sm);
 }
 .resume-section__body {
   font-size: var(--unit-sm);
+  line-height: 1.4;
 }
 .resume-section__body--two-columns {
   display: grid;
@@ -60,11 +79,12 @@ h1, h2, h3, h4, h5, h6 {
 .section-detail__title {
   margin-bottom: var(--unit-sm);
   font-size: var(--unit-sm);
-  font-weight: 600;
+  font-weight: 500;
 }
 .section-detail__description {
   margin-bottom: var(--unit-sm);
   font-size: var(--unit-sm);
+  line-height: 1.4;
 }
 
 .experience-list {
