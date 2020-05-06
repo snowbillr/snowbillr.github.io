@@ -43,31 +43,28 @@ a {
 }
 
 .header {
-  display: grid;
-  grid-template-areas: "a b"
-                       "c c";
-  row-gap: var(--unit-sm);
+  display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
 
   margin-bottom: var(--unit-md);
 
   &__title {
-    grid-area: a;
+    margin-bottom: var(--unit-sm);
+    margin-right: var(--unit-sm);
 
     font-size: var(--unit-xl);
     line-height: 1;
   }
 
   &__subtitle {
-    grid-area: b;
-
     font-size: var(--unit-lg);
     font-weight: 300;
     line-height: 1;
   }
 
   &__contact-list {
-    grid-area: c;
+    flex-basis: 100%;
 
     display: flex;
 
