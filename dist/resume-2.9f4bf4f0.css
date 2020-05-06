@@ -30,9 +30,14 @@ a {
 }
 
 .page-container {
-  max-width: 640px;
   margin: var(--unit-lg) auto;
+  max-width: 90%;
   font-family: "Roboto", Arial, sans-serif;
+}
+@media (min-width: 400px) {
+  .page-container {
+    max-width: 640px;
+  }
 }
 @media print {
   .page-container {
@@ -86,8 +91,13 @@ a {
 }
 .resume-section__body--two-columns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: var(--unit-sm);
+}
+@media (min-width: 400px) {
+  .resume-section__body--two-columns {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .section-detail {
@@ -96,14 +106,24 @@ a {
   margin-bottom: var(--unit-md);
 }
 .section-detail__title {
-  grid-column: 1/2;
+  grid-column: 1/3;
   font-size: var(--unit-sm);
   font-weight: 500;
 }
+@media (min-width: 400px) {
+  .section-detail__title {
+    grid-column: 1/2;
+  }
+}
 .section-detail__subtitle {
-  grid-column: 2/3;
-  text-align: right;
+  grid-column: 1/3;
   font-weight: 500;
+}
+@media (min-width: 400px) {
+  .section-detail__subtitle {
+    grid-column: 2/3;
+    text-align: right;
+  }
 }
 .section-detail__description {
   grid-column: 1/3;
@@ -118,11 +138,53 @@ a {
 
 .experience-list {
   display: grid;
-  grid-template-columns: minmax(auto, 200px) auto;
+  grid-template-columns: auto;
   gap: var(--unit-sm);
 }
-.experience-list--thin {
-  grid-template-columns: minmax(auto, 150px) auto;
+@media (min-width: 400px) {
+  .experience-list {
+    grid-template-columns: minmax(auto, 200px) auto;
+  }
+}
+@media (min-width: 400px) {
+  .experience-list--thin {
+    grid-template-columns: minmax(auto, 1500px) auto;
+  }
+}
+
+.experience-list__name {
+  font-weight: 500;
+}
+@media (min-width: 400px) {
+  .experience-list__name {
+    font-weight: 400;
+  }
+}
+.rating {
+  display: flex;
+}
+@media (max-width: 400px) {
+  .rating {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+}
+.rating__value {
+  margin-right: var(--unit-sm);
+}
+@media (max-width: 400px) {
+  .rating__value {
+    height: 0;
+  }
+  .rating__value::after {
+    content: attr(value);
+  }
+}
+@media (max-width: 400px) {
+  .rating__label::after {
+    content: ":";
+    margin-right: 5px;
+  }
 }
 
 .unstyled-list {
