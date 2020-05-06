@@ -6,6 +6,13 @@
   --unit-md: 26px;
   --unit-lg: 42px;
   --unit-xl: 67px;
+
+  @media print {
+    --unit-sm: 14px;
+    --unit-md: 21px;
+    --unit-lg: 26px;
+    --unit-xl: 36px;
+  }
 }
 
 * {
@@ -29,6 +36,10 @@ a {
   margin: var(--unit-lg) auto;
 
   font-family: 'Roboto', Arial, sans-serif;
+
+  @media print {
+    max-width: 90%;
+  }
 }
 
 .header {
@@ -78,6 +89,10 @@ a {
     font-weight: 300;
 
     margin-bottom: var(--unit-sm);
+
+    @media print {
+      font-weight: 400;
+    }
   }
 
   &__body {
@@ -146,6 +161,10 @@ a {
   }
 }
 
-.technology-list {
+.unstyled-list {
   list-style-type: none;
+}
+
+.indented-list {
+  margin-left: var(--unit-md);
 }

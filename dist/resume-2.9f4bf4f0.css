@@ -5,6 +5,14 @@
   --unit-lg: 42px;
   --unit-xl: 67px;
 }
+@media print {
+  :root {
+    --unit-sm: 14px;
+    --unit-md: 21px;
+    --unit-lg: 26px;
+    --unit-xl: 36px;
+  }
+}
 
 * {
   margin: 0;
@@ -25,6 +33,11 @@ a {
   max-width: 640px;
   margin: var(--unit-lg) auto;
   font-family: "Roboto", Arial, sans-serif;
+}
+@media print {
+  .page-container {
+    max-width: 90%;
+  }
 }
 
 .header {
@@ -62,6 +75,11 @@ a {
   font-size: var(--unit-md);
   font-weight: 300;
   margin-bottom: var(--unit-sm);
+}
+@media print {
+  .resume-section__title {
+    font-weight: 400;
+  }
 }
 .resume-section__body {
   font-size: var(--unit-sm);
@@ -108,8 +126,12 @@ a {
   grid-template-columns: minmax(auto, 150px) auto;
 }
 
-.technology-list {
+.unstyled-list {
   list-style-type: none;
+}
+
+.indented-list {
+  margin-left: var(--unit-md);
 }
 
 /*# sourceMappingURL=/resume-2.9f4bf4f0.css.map */
