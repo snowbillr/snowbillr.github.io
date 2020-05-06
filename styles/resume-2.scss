@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
+// media queries can't use var()
+$breakpoint: 700px;
+
 :root {
   // https://type-scale.com/ - 1.618
   --unit-sm: 16px;
@@ -38,7 +41,7 @@ a {
 
   font-family: 'Roboto', Arial, sans-serif;
 
-  @media (min-width: 400px) {
+  @media (min-width: $breakpoint) {
     max-width: 640px;
   }
 
@@ -107,7 +110,7 @@ a {
       grid-template-columns: 1fr;
       gap: var(--unit-sm);
 
-      @media (min-width: 400px) {
+      @media (min-width: $breakpoint) {
         grid-template-columns: 1fr 1fr;
       }
     }
@@ -124,7 +127,7 @@ a {
 
   &__title {
     grid-column: 1/3;
-    @media (min-width: 400px) {
+    @media (min-width: $breakpoint) {
       grid-column: 1/2;
     }
 
@@ -135,7 +138,7 @@ a {
   &__subtitle {
     grid-column: 1/3;
 
-    @media (min-width: 400px) {
+    @media (min-width: $breakpoint) {
       grid-column: 2/3;
       text-align: right;
     }
@@ -160,19 +163,19 @@ a {
   grid-template-columns: auto;
   gap: var(--unit-sm);
 
-  @media (min-width: 400px) {
+  @media (min-width: $breakpoint) {
     grid-template-columns: minmax(auto, 200px) auto;
   }
 
   @at-root &--thin {
-    @media (min-width: 400px) {
+    @media (min-width: $breakpoint) {
       grid-template-columns: minmax(auto, 1500px) auto;
     }
   }
 
   &__name {
     font-weight: 500;
-    @media (min-width: 400px) {
+    @media (min-width: $breakpoint) {
       font-weight: 400;
     }
   }
@@ -184,7 +187,7 @@ a {
 
 .rating {
   display: flex;
-  @media (max-width: 400px) {
+  @media (max-width: $breakpoint) {
     flex-direction: row-reverse;
     justify-content: space-between;
   }
@@ -192,7 +195,7 @@ a {
   &__value {
     margin-right: var(--unit-sm);
 
-    @media (max-width: 400px) {
+    @media (max-width: $breakpoint) {
       height: 0;
 
       &::after {
@@ -202,7 +205,7 @@ a {
   }
 
   &__label {
-    @media (max-width: 400px) {
+    @media (max-width: $breakpoint) {
       &::after {
         content: ":";
         margin-right: 5px;
@@ -215,7 +218,7 @@ a {
   &__label {
     display: none;
 
-    @media (min-width: 400px) {
+    @media (min-width: $breakpoint) {
       display: inline-block;
     }
   }
