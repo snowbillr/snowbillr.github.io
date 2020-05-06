@@ -1,5 +1,16 @@
-$foreground: #444;
-$background: #fff;
+:root {
+  --foreground-color: #444;
+  --background-color: #fff;
+
+  --title-font-size: 5em;
+  --subtitle-font-size: 2em;
+  --link-font-size: 1em;
+
+  @media (max-width: 400px) {
+    --title-font-size: 4rem;
+    --link-font-size: 1.25em;
+  }
+}
 
 * {
   margin: 0;
@@ -15,9 +26,14 @@ $background: #fff;
 }
 
 .container {
-  background: $background;
+  background: var(--background-color);
+
   width: 60%;
   max-width: 400px;
+  @media (max-width: 400px) {
+    width: 100%;
+    max-width: 100%;
+  }
 
   margin: 20vh auto;
 
@@ -28,8 +44,8 @@ $background: #fff;
 
     text-align: center;
 
-    font-size: 5em;
-    color: $foreground;
+    font-size: var(--title-font-size);
+    color: var(--foreground-color);
   }
 
   .subtitle {
@@ -37,17 +53,17 @@ $background: #fff;
 
     text-align: center;
 
-    font-size: 2em;
-    color: $foreground;
+    font-size: var(--subtitle-font-size);
+    color: var(--foreground-color);
   }
 
   .nav {
-    .links {
+    .links-list {
       list-style: none;
 
       display: flex;
 
-      .link {
+      .links-list-item {
         flex: 1;
         text-align: center;
         position: relative;
@@ -57,9 +73,9 @@ $background: #fff;
 
         cursor: pointer;
 
-        a {
-          font-size: 1em;
-          color: $foreground;
+        .link {
+          font-size: var(--link-font-size);
+          color: var(--foreground-color);
           text-decoration: none;
 
           &::before,
@@ -80,11 +96,11 @@ $background: #fff;
           }
 
           &::before {
-            border-top: 1px solid $foreground;
+            border-top: 1px solid var(--foreground-color);
             transform: translateY(50%);
           }
           &::after {
-            border-bottom: 1px solid $foreground;
+            border-bottom: 1px solid var(--foreground-color);
             transform: translateY(-50%);
           }
 
