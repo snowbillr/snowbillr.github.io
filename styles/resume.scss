@@ -5,12 +5,14 @@ $breakpoint: 700px;
 
 :root {
   // https://type-scale.com/ - 1.618
+  --unit-tiny: 8px;
   --unit-sm: 16px;
   --unit-md: 26px;
   --unit-lg: 42px;
   --unit-xl: 67px;
 
   @media print {
+    --unit-tiny: 8px;
     --unit-sm: 14px;
     --unit-md: 21px;
     --unit-lg: 26px;
@@ -32,6 +34,21 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   color: #666;
+}
+
+.pdf-download {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  @media print {
+    display: none;
+  }
+
+  &__link {
+    padding: var(--unit-tiny);
+    background: #efefef;
+  }
 }
 
 .page-container {

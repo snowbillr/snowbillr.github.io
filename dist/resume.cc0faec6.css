@@ -1,6 +1,7 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 :root {
+  --unit-tiny: 8px;
   --unit-sm: 16px;
   --unit-md: 26px;
   --unit-lg: 42px;
@@ -8,6 +9,7 @@
 }
 @media print {
   :root {
+    --unit-tiny: 8px;
     --unit-sm: 14px;
     --unit-md: 21px;
     --unit-lg: 26px;
@@ -28,6 +30,21 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   color: #666;
+}
+
+.pdf-download {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+@media print {
+  .pdf-download {
+    display: none;
+  }
+}
+.pdf-download__link {
+  padding: var(--unit-tiny);
+  background: #efefef;
 }
 
 .page-container {
