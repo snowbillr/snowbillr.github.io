@@ -200,12 +200,6 @@ a {
     grid-template-columns: minmax(auto, 200px) auto;
   }
 
-  @at-root &--thin {
-    @media (min-width: $breakpoint) {
-      grid-template-columns: minmax(auto, 1500px) auto;
-    }
-  }
-
   &__name {
     font-weight: 400;
   }
