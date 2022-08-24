@@ -174,12 +174,7 @@ a {
 }
 
 .experience-list__name {
-  font-weight: 500;
-}
-@media (min-width: 700px) {
-  .experience-list__name {
-    font-weight: 400;
-  }
+  font-weight: 400;
 }
 .rating {
   display: flex;
