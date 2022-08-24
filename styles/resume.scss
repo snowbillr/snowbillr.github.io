@@ -91,6 +91,10 @@ a {
 
   &__contact-list {
     flex-basis: 100%;
+    @media print {
+      flex: 1;
+      justify-content: flex-end;
+    }
 
     display: flex;
 
@@ -100,6 +104,9 @@ a {
       font-size: var(--unit-sm);
 
       margin-right: var(--unit-md);
+      @media print {
+        margin-right: var(--unit-sm);
+      }
     }
   }
 }
@@ -197,6 +204,10 @@ a {
   gap: var(--unit-sm);
 
   @media (min-width: $breakpoint) {
+    grid-template-columns: minmax(auto, 200px) auto;
+  }
+
+  @media print {
     grid-template-columns: minmax(auto, 200px) auto;
   }
 
