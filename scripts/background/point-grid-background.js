@@ -16,7 +16,7 @@ export class PointGridBackground {
 
     this.startSpawnLoop();
 
-    this.mainLoop();
+    requestAnimationFrame(() => this.mainLoop());
   }
 
   addResizeListener() {
@@ -35,6 +35,8 @@ export class PointGridBackground {
 
   startSpawnLoop() {
     setInterval(() => {
+      if (this.pointSwapAnimations.length >= 5) return;
+
       const [firstPoint, secondPoint] = this.pointGrid.selectVisibleAdjacentPoints();
 
       if (firstPoint == null || secondPoint == null) return;
